@@ -6,7 +6,7 @@ const handler: Handler = async (
   context: HandlerContext
 ) => {
   const cartId = event.queryStringParameters?.cartId;
-  
+
   if (!cartId || typeof cartId !== "string") {
     return {
       statusCode: 400,
@@ -16,15 +16,14 @@ const handler: Handler = async (
     };
   }
 
-  let url =
-    `https://api.bigcommerce.com/stores/${process.env.STORE_HASH}/v3/carts/36199f6e-3830-4408-abc0-1b241143aa57?include=redirect_urls`;
+  let url = `https://api.bigcommerce.com/stores/${process.env.TORE_HASH}/v3/carts/3${cartId}?include=redirect_urls`;
 
   let options = {
     method: "GET",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      "X-Auth-Token": String(process.env.AUTH_TOKEN),
+      "X-Auth-Token": process.env.AUTH_TOKEN || "",
     },
   };
 

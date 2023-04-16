@@ -5,11 +5,13 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from "vue";
-import { embedCheckout } from "@bigcommerce/checkout-sdk";
+// import { onMounted } from "vue";
+// import { embedCheckout } from "@bigcommerce/checkout-sdk";
+
+const config = useRuntimeConfig();
 
 const cartRes = await fetch(
-  `${process.env.BASE_URL}/.netlify/functions/createCart`
+  `${config.public.baseURL}/.netlify/functions/createCart`
 );
 const cart = await cartRes.json();
 
