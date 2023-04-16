@@ -20,3 +20,11 @@ onMounted(async () => {
   embeddedCheckoutUrl.value = cart.data.redirect_urls.embedded_checkout_url
 });
 </script>
+
+<style>
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+</style>
