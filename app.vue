@@ -1,6 +1,6 @@
 <template>
   <div>
-    <iframe :src="embeddedCheckoutUrl" frameborder="0"></iframe>
+    <iframe :src="embeddedCheckoutUrl" width="100%" height="100%" frameborder="0"></iframe>
   </div>
 </template>
 
