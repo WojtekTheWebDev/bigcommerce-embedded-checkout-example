@@ -12,7 +12,6 @@
     "nuxt": "^3.4.1"
   },
   "dependencies": {
-    "@bigcommerce/checkout-sdk": "^1.374.1",
     "@netlify/functions": "^1.4.0"
   }
 }
