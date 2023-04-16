@@ -9,7 +9,7 @@ import { onMounted } from "vue";
 import { embedCheckout } from "@bigcommerce/checkout-sdk";
 
 const cartRes = await fetch(
-  "http://localhost:3000/.netlify/functions/createCart"
+  `${process.env.BASE_URL}/.netlify/functions/createCart`
 );
 const cart = await cartRes.json();
 
