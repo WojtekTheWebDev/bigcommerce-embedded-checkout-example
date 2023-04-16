@@ -5,7 +5,7 @@ const handler: Handler = async (
   event: HandlerEvent,
   context: HandlerContext
 ) => {
-  let url = `https://api.bigcommerce.com/stores/nlk5d0cwqt/v3/carts?include=redirect_urls`;
+  let url = `https://api.bigcommerce.com/stores/${process.env.STORE_HASH}/v3/carts?include=redirect_urls`;
 
   let options = {
     method: "POST",
