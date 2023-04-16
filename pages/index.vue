@@ -5,12 +5,14 @@
 </template>
 
 <script setup lang="ts">
-  const config = useRuntimeConfig();
+const config = useRuntimeConfig();
 
-  const { data: cart } = useFetch<any>(
-    `${config.public.baseURL}/.netlify/functions/createCart`
-  );
-  const embeddedCheckoutUrl = computed(() => cart.value?.data.redirect_urls.embedded_checkout_url);
+const cartRes = await fetch(
+  `${config.public.baseURL}/.netlify/functions/createCart`
+);
+const cart = await cartRes.json();
+
+const embeddedCheckoutUrl = cart.data.redirect_urls.embedded_checkout_url;
 </script>
 
 <style scoped>
