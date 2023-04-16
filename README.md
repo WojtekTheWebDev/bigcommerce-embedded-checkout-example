@@ -1,6 +1,20 @@
-# Nuxt 3 Minimal Starter
+# BigCommerce Embedded Checkout example with Nuxt 3
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This is an example of how to use the BigCommerce Embedded Checkout with Nuxt 3.
+It uses the Netlify serverless functions to handle the BigCommerce API calls.
+
+## Demo
+
+The demo app is available at https://effortless-pastelito-df6116.netlify.app/
+
+## Pre-requisites
+
+To run it, you will need:
+
+- Node.js v16+,
+- [BigCommerce store](https://www.bigcommerce.com/),
+- [Netlify](https://www.netlify.com/) account,
+- [Netlify CLI](https://docs.netlify.com/cli/get-started/).
 
 ## Setup
 
@@ -17,26 +31,28 @@ npm install
 pnpm install
 ```
 
+## Configuration
+
+Environment variables are used to configure the application:
+
+- STORE_HASH - BigCommerce store hash
+- AUTH_TOKEN - BigCommerce API token
+- CHANNEL_ID - BigCommerce channel ID
+
 ## Development Server
 
-Start the development server on `http://localhost:3000`
+Netlify CLI is used to run the development server.
 
 ```bash
-npm run dev
+netlify dev
 ```
 
 ## Production
 
-Build the application for production:
+Thanks to the Netlify serverless functions, the application can be deployed to Netlify and run without any additional configuration.
+
+The command to generate the `dist` folder is:
 
 ```bash
-npm run build
+yarn generate
 ```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
