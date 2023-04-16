@@ -5,20 +5,12 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from "vue";
+  const config = useRuntimeConfig();
 
-const config = useRuntimeConfig();
-
-const embeddedCheckoutUrl = ref("");
-
-onMounted(async () => {
-  const cartRes = await fetch(
+  const { data: cart } = useFetch<any>(
     `${config.public.baseURL}/.netlify/functions/createCart`
   );
-  const cart = await cartRes.json();
-
-  embeddedCheckoutUrl.value = cart.data.redirect_urls.embedded_checkout_url;
-});
+  const embeddedCheckoutUrl = computed(() => cart.value?.data.redirect_urls.embedded_checkout_url);
 </script>
 
 <style scoped>
