@@ -4,5 +4,8 @@ export default defineNuxtConfig({
     public: {
       baseURL: process.env.BASE_URL || 'http://localhost:3000',
     },
-  }
+  },
+  css: [
+    '~/assets/css/main.css',
+  ],
 })
