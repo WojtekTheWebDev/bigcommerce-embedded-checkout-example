@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="checkout"></div>
+    <iframe :src="embeddedCheckoutUrl" frameborder="0"></iframe>
   </div>
 </template>
 
@@ -9,12 +9,14 @@ import { onMounted } from "vue";
 
 const config = useRuntimeConfig();
 
+const embeddedCheckoutUrl = ref("");
+
 onMounted(async () => {
   const cartRes = await fetch(
     `${config.public.baseURL}/.netlify/functions/createCart`
   );
   const cart = await cartRes.json();
 
-  console.log(cart);
+  embeddedCheckoutUrl.value = cart.data.redirect_urls.embedded_checkout_url
 });
 </script>
